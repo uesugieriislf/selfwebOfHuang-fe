@@ -1,8 +1,18 @@
 @import './base.css';
 
 #app {
-  background: #f2f2f0;
+  background: var(--dark);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
+
+  ::-webkit-scrollbar {
+    width: 0 !important;
+    height: 0;
+  }
 }
 
 a,

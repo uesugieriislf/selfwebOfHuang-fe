@@ -4,17 +4,12 @@ import { RouterView } from 'vue-router'
 
 <template>
   <router-view v-slot="{ Component }">
-    <Transition name="fly">
-      <component :is="Component"></component>
-    </Transition>
+    <!-- <Transition> -->
+    <component :is="Component"></component>
+    <!-- </Transition> -->
   </router-view>
 </template>
 <style scoped>
-#app {
-  background: #f2f2f0;
-
-}
-
 .fly-enter-from {
   transform: scale(0);
 }

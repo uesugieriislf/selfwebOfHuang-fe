@@ -19,6 +19,26 @@
   --vt-c-text-light-2: rgba(60, 60, 60, 0.66);
   --vt-c-text-dark-1: var(--vt-c-white);
   --vt-c-text-dark-2: rgba(235, 235, 235, 0.64);
+  --gap: 2.7rem;
+  --gapHolder: 3rem 2rem;
+  --gapSections: 2rem;
+  --gapMainBorder: 4.18vw;
+  --borderRadius: 1.2rem;
+  --borderSingle: 0.8rem;
+  --dark: #001446;
+  --lineColor: rgba(0,20,70,0.1);
+  --bgHolder: #e2ded4;
+  --gray: #f6f6f6;
+  --soft: #dbd6c9;
+  --white: #fff;
+  --color: #8c0000;
+  --pink: #5f4541;
+  --red: #bf2020;
+  --title: "a2g",monospace,sans-serif;
+  --sans: "ev-light",sans-serif;
+  --sansbold: "ev-regular",sans-serif;
+  --serif: "ev-light",serif;
+  --serifbold: "ev-regular",serif;
 }
 
 /* semantic color variables for this project */
