@@ -1,9 +1,32 @@
 <script setup lang="ts">
+import { onMounted } from 'vue';
+
+onMounted(() => {
+  const bgTop = document.querySelector('.bg-top')
+  window.onscroll = e => {
+    let scrollTop = (e.target as Document).scrollingElement?.scrollTop
+    console.log(scrollTop);
+    bgTop.style.transform = `translateY(${-scrollTop}px)`
+  }
+})
+const open = () => {
+  const bgTop = document.querySelector('.bg-top')
+  bgTop.style.transform = `translateY(-75vh)`
+  bgTop.style.transition = '1s ease-in'
+
+}
 </script>
 
 <template>
   <main>
+    <div class="bg-top">
+      <div class="open" @click="open">
+        click to open
+      </div>
+      <div class="line"></div>
+    </div>
     <div class="logo">
+      <div class="box"></div>
       <!-- <img src="@/assets/home.png" alt="" width="300"> -->
       <div class="logo-word">
         <div class="main-word">
@@ -27,14 +50,15 @@
 </template>
 <style lang="less">
 main {
-  width: calc(100vw - 24px);
-  height: calc(100vh - 24px);
+  width: 100vw;
+  height: 300vh;
   display: flex;
   justify-content: center;
-  // align-items: center;
+  align-items: center;
   background: var(--bgHolder);
   border-radius: 12px;
-  animation: firstDisplay 3s ease-in-out;
+  // animation: firstDisplay 3s ease-in-out;
+  position: relative;
 }
 
 @keyframes firstDisplay {
@@ -55,12 +79,90 @@ main {
   }
 }
 
+.bg-top {
+  width: 100vw;
+  height: 75vh;
+  background: blue;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 100;
+
+  .open {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--dark);
+    color: var(--white);
+    cursor: pointer;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .line {
+    width: 60%;
+    height: 5px;
+    background: #000;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
 .logo {
+  --logoWidth: 250px;
+  --logoHeight: 60vh;
+  position: fixed;
+  left: 50%;
+  top: 50%;
   display: flex;
   flex-direction: column;
   // justify-content: cen ter;
   align-items: center;
-  margin-top: 60px;
+  width: var(--logoWidth);
+  height: var(--logoHeight);
+  // background: red;
+
+
+  transform: translate(-50%, -50%);
+
+  .logo-word {
+    padding: 20px;
+    text-align: center;
+
+    .main-word {
+      font-weight: 700;
+      font-size: 40px;
+      color: var(--color);
+    }
+
+    .sub-word {
+      color: var(--dark);
+      text-align: center;
+      font-size: 12px;
+      line-height: 1.2;
+    }
+  }
+
+  .box {
+    position: fixed;
+    top: 30px;
+    z-index: -10;
+    width: var(--logoHeight);
+    height: var(--logoWidth);
+    background-image: radial-gradient(circle at 11px 12px, transparent 7px, #fff 4px, #fff 100%);
+    background-size: 100% 20px;
+    background-position: -10px 25px;
+    transform: rotate(90deg);
+  }
+
+
 }
 
 .open-button {
@@ -116,23 +218,5 @@ main {
 
 .open-button:hover {
   filter: brightness(1.5);
-}
-
-.logo-word {
-  padding: 20px;
-  text-align: center;
-
-  .main-word {
-    font-weight: 700;
-    font-size: 40px;
-    color: var(--color);
-  }
-
-  .sub-word {
-    color: var(--dark);
-    text-align: center;
-    font-size: 12px;
-    line-height: 1.2;
-  }
 }
 </style>
