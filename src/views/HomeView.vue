@@ -58,8 +58,22 @@ main {
   background: var(--bgHolder);
   border-radius: 12px;
   // animation: firstDisplay 3s ease-in-out;
-  position: relative;
+  background: linear-gradient(90deg, #ffc700 0%, #e91e1e 33%, #6f27b0 66%, #00ff88 100%);
+  background-position: 100% 0;
+  animation: bgSize 5s infinite ease-in-out alternate;
 }
+
+@keyframes bgSize {
+  0% {
+    background-size: 300% 100%;
+  }
+
+  100% {
+    background-size: 100% 100%;
+  }
+}
+
+main::after {}
 
 @keyframes firstDisplay {
   0% {
@@ -87,6 +101,9 @@ main {
   left: 0;
   top: 0;
   z-index: 100;
+  background: linear-gradient(90deg, #ffc700 0%, #e91e1e 33%, #6f27b0 66%, #00ff88 100%);
+  background-position: 100% 0;
+  animation: bgSize 5s infinite ease-in-out alternate;
 
   .open {
     width: 100px;
