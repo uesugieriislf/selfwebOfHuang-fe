@@ -20,10 +20,19 @@ const open = () => {
 <template>
   <main>
     <div class="bg-top">
-      <div class="open" @click="open">
-        click to open
+      <div class="bg-bottom">
+
       </div>
-      <div class="line"></div>
+      <div class="bg-before">
+        <div class="content">
+          hello world!
+        </div>
+        <div class="open open-button" @click="open">
+          click to open
+        </div>
+        <div class="line"></div>
+      </div>
+
     </div>
     <div class="logo">
       <div class="box"></div>
@@ -96,40 +105,72 @@ main::after {}
 .bg-top {
   width: 100vw;
   height: 75vh;
-  background: blue;
   position: fixed;
   left: 0;
   top: 0;
   z-index: 100;
-  background: linear-gradient(90deg, #ffc700 0%, #e91e1e 33%, #6f27b0 66%, #00ff88 100%);
-  background-position: 100% 0;
-  animation: bgSize 5s infinite ease-in-out alternate;
 
-  .open {
-    width: 100px;
-    height: 100px;
+  .bg-before {
     position: absolute;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--dark);
-    color: var(--white);
-    cursor: pointer;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 75vh;
+    --c: #fff;
+    --w1: radial-gradient(100% 57% at bottom, #0000 100%, var(--c) 100.5%) no-repeat;
+    --w2: radial-gradient(100% 57% at top, var(--c) 100%, #0000 100.5%) no-repeat;
+    background: var(--w1), var(--w2);
+    background-position: 0% 100%, 100% 100%;
+    background-size: 50.8% 100%;
+
+    .content {
+      width: 100vw;
+      height: 35vh;
+      // text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .open {
+      // width: 100px;
+      // height: 100px;
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--dark);
+      color: var(--white);
+      cursor: pointer;
+      // border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .line {
+      width: 60%;
+      height: 2px;
+      background: #000;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
   }
 
-  .line {
-    width: 60%;
-    height: 5px;
-    background: #000;
+  .bg-bottom {
     position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 75vh;
+    background: linear-gradient(90deg, #ffc700 0%, #e91e1e 33%, #6f27b0 66%, #00ff88 100%);
+    background-position: 100% 0;
+    animation: bgSize 5s infinite ease-in-out alternate;
+    filter: blur(2px);
   }
+
 }
 
 .logo {
